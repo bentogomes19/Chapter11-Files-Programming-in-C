@@ -112,3 +112,9 @@ This function find the end of file, it return a integer number. When this number
 
 ## Solved Exercises
 
+
+<a href="/Solved Exercises/prog01/prog01.c">prog01.c</a>
+
+<a href="/Solved Exercises/prog02/prog02.c">prog02.c</a>
+
+<a href="/Solved Exercises/prog03/prog03.c">Prog03.c</a>

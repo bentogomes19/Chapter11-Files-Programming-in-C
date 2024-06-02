@@ -99,7 +99,7 @@ int main(void) // main function
 
     do
     {
-        printf("Press 1 to see the registred students.. ");
+        printf("Press 1 to see the registered students.. ");
         scanf("%d", &c);
 
         if (c != 1)
@@ -117,8 +117,8 @@ int main(void) // main function
         printf("\n Cannot open the file... Try again.");
         return 1;
     }
-    // Show the registred students
-    printf("REGISTRED STUDENTS - MARYLAND HIGH SCHOOL 2024\n");
+    // Show the registered students
+    printf("REGISTERED STUDENTS - MARYLAND HIGH SCHOOL 2024\n");
     printf("---------------------------------------------\n");
     printf("  ##  ID  ##    NAME    ##     SUBJECT    ## \n");
     printf("---------------------------------------------\n");
