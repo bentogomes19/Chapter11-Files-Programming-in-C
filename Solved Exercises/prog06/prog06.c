@@ -4,6 +4,7 @@
 #include "registros.h"
 #include "incluirProdutos.h"
 #include "ConsultarProdutos.h"
+#include "aumento.h"
 
 /*15. Faça um programa para criar um arquivo chamado PRODUTOS.DAT, em que cada registro será composto
 pelos seguintes campos: codigo, descricao e preco.
@@ -25,7 +26,8 @@ int main(void)
         printf("**********************************************\n");
         printf("       [01] - INCLUIR PRODUTOS                \n");
         printf("       [02] - CONSULTAR PRODUTOS (>R$ 500,00 )\n");
-        printf("       [03] - SAIR                            \n");
+        printf("       [03] - AUMENTAR PRECO 15 %%            \n");
+        printf("       [04] - SAIR                            \n");
         printf("Escolha uma opcao: ");
         scanf("%d", &op);
 
@@ -38,6 +40,9 @@ int main(void)
             ConsultarProdutos();
             break;
         case 3:
+            aumento();
+            break;
+        case 4:
             break;
         default:
             printf("Codigo invalido.... Tente novamente...\n");
@@ -45,7 +50,7 @@ int main(void)
             break;
         }
 
-    } while (op != 3);
+    } while (op != 4);
 
     return 0;
 }
