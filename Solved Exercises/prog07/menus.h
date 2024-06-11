@@ -3,155 +3,156 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <windows.h>
-
 #include "BancoDeDados.h"
 
-void MenuPrincipal() // MENU PRINCIPAL DO PROGRAMA
+// MENU PRINCIPAL DO PROGRAMA
+void Menu_Principal()
 {
-    printf("==========================================================================\n");
-    printf("	  ## GERENCIAMENTO DE VENDAS/ESTOQUE LOJAS INFO100 ##                 \n");
-    printf("==========================================================================\n");
-    printf("		[01] - CONSULTAS              \n");
-    printf("		[02] - CADASTROS              \n");
-    printf("		[03] - VENDAS                 \n");
-    printf("		[04] - ALTERACOES             \n");
-    printf("		[05] - INFO                   \n");
-    printf("		[06] - SAIR                   \n");
-    printf("               DIGITE UMA OPCAO -->>  ");
+    printf("--------------------------------------------------------\n");
+    printf(" GERENCIAMENTO DE VENDAS/PRODUTOS -> LOJAS INFORMATICA  \n");
+    printf("--------------------------------------------------------\n");
+    printf("            [01] - CADASTRAR PRODUTOS                   \n");
+    printf("            [02] - CADASTRAR CLIENTES                   \n");
+    printf("            [03] - CADASTRAR VENDAS                     \n");
+    printf("            [04] - MOSTRAR PRODUTOS CADASTRADOS         \n");
+    printf("            [05] - MOSTRAR CLIENTES CADASTRADOS         \n");
+    printf("            [06] - MOSTRAR VENDAS CADASTRADAS           \n");
+    printf("            [07] - ALTERAR CADASTROS                    \n");
+    printf("            [08] - SAIR                                 \n");
+    printf("Escolha uma opcao: ");
 }
 
-void MenuConsultas() // MENU PARA CONSULTAS
+// MENU CADASTRAR PRODUTOS
+void Menu_CadastrarProdutos()
 {
-    printf("=============================================================\n");
-    printf("	          ## LOJAS INFO100 ## CONSULTAS                  \n");
-    printf("=============================================================\n");
-    printf("	[01] - CONSULTAR TODOS OS PRODUTOS CADASTRADOS NO SISTEMA\n");
-    printf("	[02] - CONSULTAR PRODUTOS POR CATEGORIA                  \n");
-    printf("	[03] - CONSULTAR PRODUTO                                 \n");
-    printf("	[04] - CONSULTAR ESTOQUE                                 \n");
-    printf("	[05] - VOLTAR                                            \n");
-    printf("	Escolha uma opcao:                                       \n");
+    system("cls"); // LIMPAR A TELA
+    printf("------------------------------------------------\n");
+    printf("### LOJAS INFORMATICA - CADASTRO DE PRODUTOS ###\n");
+    printf("------------------------------------------------\n");
 }
 
-void MenuCadastro() // MENU REFERENTE AO CADASTRO DE PRODUTOS
+void Menu_CadastrarClientes()
 {
-    printf("===================================================================\n");
-    printf("		## LOJAS INFO100 ## CADASTROS                              \n");
-    printf("===================================================================\n");
-    printf("	INFORMACOES SOBRE O PRODUTOS                                   \n");
-    printf("	[#] CODIGO DO PRODUTO                                          \n");
-    printf("	[#] NOME                                                       \n");
-    printf("	[#] PRECO                                                      \n");
-    printf("	[#] TIPO                                                       \n");
+    system("cls"); // LIMPAR A TELA
+    printf("------------------------------------------------\n");
+    printf("### LOJAS INFORMATICA - CADASTRO DE CLIENTES ###\n");
+    printf("------------------------------------------------\n");
 }
 
-void MenuVendas() // MENU PARA EFETUAR VENDAS
+void Menu_CadastrarVendas()
 {
-    printf("===================================================================================\n");
-    printf("			 			## LOJAS INFO100 ## VENDAS                                 \n");
-    printf("===================================================================================\n");
-    printf("	[01] - CADASTRAR CLIENTE		[02] - CADASTRAR VENDA     [03] - VOLTAR       \n");
-    printf(" PARA O CADASTRO DE UMA VENDA E NECESSARIO O CADASTRO DO CLIENTE, APOS ISSO FACA O CADASTRO DA VENDA...\n");
+    system("cls"); // LIMPAR A TELA
+    printf("------------------------------------------------\n");
+    printf("### LOJAS INFORMATICA - CADASTRO DE VENDAS   ###\n");
+    printf("------------------------------------------------\n");
 }
 
-void MenuAlteracoes() // MENU PARA ALTERACOES
+// MOSTRAR PRODUTOS CADASTRADOS
+void produtosCadastrados()
 {
-    printf("===================================================================================\n");
-    printf("			 			## LOJAS INFO100 ## ALTERACOES                             \n");
-    printf("===================================================================================\n");
-    printf("[01] - EDITAR CLIENTES [02] - ALTERAR DADOS DE UM PRODUTO [03] - ALTERAR PRECO     \n");
-}
-
-void layoutconsultas()
-{
-    printf("===============================================\n");
-    printf("	## LOJAS INFO100 ## CONSULTAS              \n");
-    printf("===============================================\n");
-}
-
-void layoutcadastros()
-{
-    printf("===================================================================================\n");
-    printf("			 			## LOJAS INFO100 ## CADASTROS                              \n");
-    printf("===================================================================================\n");
-}
-
-void layoutvendas()
-{
-    printf("===================================================================================\n");
-    printf("			 			## LOJAS INFO100 ## VENDAS                                 \n");
-    printf("===================================================================================\n");
-}
-
-void layoutAlteracoes()
-{
-    printf("===================================================================================\n");
-    printf("			 			## LOJAS INFO100 ## ALTERACOES                             \n");
-    printf("===================================================================================\n");
-}
-
-/* MENSAGENS DO SISTEMA */
-
-void CodigoInvalido()
-{
-    printf("Codigo invalido...Tente novamente...\n");
-    Sleep(900);
-    system("cls");
-}
-
-void CadastroSucesso()
-{
-    printf("Produto Cadastrado com sucesso...\n");
-    Sleep(500);
-    printf("Aguarde...\n");
-    Sleep(800);
-    system("cls");
-}
-
-/* TABELAS DO SISTEMA */
-
-void layoutcategorias()
-{
-    printf("[**** CATEGORIAS *****]\n");
-    printf(" [1] MEMORIAS \n");
-    printf(" [2] DEVICE STORAGE \n");
-    printf(" [3] PERIFERICOS \n");
-    printf(" [4] ACESSORIOS \n");
-    printf(" [5] PLACAS DE VIDEO \n");
-    printf(" [6] PLACAS MAE \n");
-    printf(" [7] PROCESSADOR \n");
-    printf(" [8] UTILITARIO \n");
-}
-
-void TabelaEstoque() // Mostrar o estoque do sistema
-{
-    int soma_produtos = 0;
-    FILE *arq2;
-    arq2 = fopen("estoque.dat", "rb+");
-    if (arq2 == NULL)
+    int count_produtos = 0;
+    float count_valor = 0;
+    int count_estoque = 0;
+    FILE *arq;
+    arq = fopen("produtos.dat", "rb+");
+    if (arq == NULL)
     {
-        printf("Nao foi possivel abrir o arquivo..\n");
+        printf("Nao ha produtos cadastrados....Tente novamente...\n");
         system("pause");
     }
     else
     {
+        system("cls");
         printf("=============================================================================================================\n");
-        printf("##  CODIGO   ##              PRODUTO               ##         CATEGORIA        ##    QUANTIDADE ESTOQUE   ## \n");
+        printf("#  CODIGO  ##             DESCRICAO             ##        CATEGORIA         ##    VALOR R$    ##  ESTOQUE  ##\n");
         printf("=============================================================================================================\n");
-        while (fread(&estoque, sizeof(estoque), 1, arq2))
+
+        while (fread(&produto, sizeof(produto), 1, arq))
         {
-            printf("##    %-5d  ##  %-33s ## %-24s ##  %-21d  ##\n", estoque.cod_produto, estoque.nome_produto, estoque.categoria, estoque.qtd_estoque);
-            soma_produtos += estoque.qtd_estoque;
+            count_produtos++;
+            count_valor += produto.valor;
+            count_estoque += produto.qtd_estoque;
+            printf("#   %-6d ##    %-30s ##     %-20s ##  %s %-10.2f ##    %-6d ##\n", produto.cod_produto, produto.nome_produto, produto.categoria, "R$", produto.valor, produto.qtd_estoque);
         }
-
-        printf("Total de itens : %d\n", soma_produtos);
     }
+    fclose(arq);
+    printf("=============================================================================================================\n");
+    printf(" PRODUTOS: %-63d TOTAL: R$ %.2f ## TOTAL: %d\n", count_produtos, count_valor, count_estoque);
+    system("pause");
+}
 
+// MOSTRAR CLIENTES CADASTRADOS
+void ClientesCadastrados()
+{
+    FILE *arq2;
+    arq2 = fopen("clientes.dat", "rb+");
+    if (arq2 == NULL)
+    {
+        printf("Nao ha clientes cadastrados...Tente novamente....\n");
+        system("pause");
+    }
+    else
+    {
+        system("cls");
+        printf("===========================================================================================================\n");
+        printf("#  CODIGO  ##              CLIENTE              ##        TELEFONE          ##       ENDERECO  (CEP)     ##\n");
+        printf("===========================================================================================================\n");
+
+        while (fread(&cliente, sizeof(cliente), 1, arq2))
+        {
+            printf("#    %-5d ##      %-28s ##       %-18s ##       %-19d ##\n", cliente.cod_cliente, cliente.nome_cli, cliente.telefone, cliente.cep);
+        }
+    }
     fclose(arq2);
     system("pause");
 }
 
+// MOSTRAR TODAS AS VENDAS EFETUADAS
+void VendasCadastradas()
+{
+    FILE *arq3;
+    arq3 = fopen("vendas.dat", "rb+");
+    if (arq3 == NULL)
+    {
+        printf("Nao ha vendas cadastradas...Tente novamente.....\n");
+        system("pause");
+    }
+    else
+    {
+        system("cls");
+        printf("==========================================================================\n");
+        printf("#  CODIGO_NF  ##        VALOR FINAL      ##        CODIGO_CLIENTE       ##\n");
+        printf("==========================================================================\n");
+        while(fread(&venda, sizeof(venda), 1, arq3))
+        {
+            printf("#    %-7d  ##     %-8s %-9.2f  ##          %-17d  ##\n",venda.cod_NF, "R$", venda.preco_final, venda.cod_cli);
+        }
+    }
+    fclose(arq3);
+    system("pause");
+}
 
+void CodigoInvalido()
+{
+    printf("Codigo invalido...Tente novamente...\n");
+    system("pause");
+}
+
+// CATEGORIAS DA LOJA
+
+void Categorias()
+{
+    printf("**********************************\n");
+    printf("           CATEGORIAS             \n");
+    printf("    [01] - MEMORIAS               \n");
+    printf("    [02] - ARMAZENAMENTO          \n");
+    printf("    [03] - PROCESSADOR            \n");
+    printf("    [04] - PLACA-MAE              \n");
+    printf("    [05] - PLACA DE VIDEO         \n");
+    printf("    [06] - MONITOR                \n");
+    printf("    [07] - PERIFERICOS            \n");
+    printf("    [08] - FONTES DE ALIMENTACAO  \n");
+}
+
+// VERIFICAR O TOTAL DE PRODUTOS + VALORES NO ESTOQUE
 #endif

@@ -1,13 +1,10 @@
+// Criado por Bento Junior Suzart Gomes
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-
 #include "menus.h"
-#include "Cadastros.h"
-#include "Consultas.h"
-#include "Alteracoes.h"
-#include "Vendas.h"
-#include "BancoDeDados.h" // REGISTROS
+#include "CadastroProdutos.h"
+#include "CadastroClientes.h"
+#include "CadastroVendas.h"
 
 int main(void)
 {
@@ -15,31 +12,38 @@ int main(void)
     do
     {
         system("cls");
-        MenuPrincipal();
+        Menu_Principal();
         scanf("%d", &op);
 
         switch (op)
         {
         case 1:
-            Consultas(); // CONSULTAS.H
+            CadastroProdutos();
             break;
-        case 2: 
-            Cadastros(); // CADASTROS.H
+        case 2:
+            CadastroClientes();
             break;
         case 3:
-            Vendas(); // VENDAS.H
+            CadastroVendas();
             break;
         case 4:
+            produtosCadastrados();
             break;
         case 5:
+            ClientesCadastrados();
             break;
         case 6:
+            VendasCadastradas();
+            break;
+        case 7:
+            break;
+        case 8:
             break;
         default:
-            CodigoInvalido(); // MENSAGEM DO SISTEMA "MENUS.H"
             break;
         }
-    } while (op != 6);
+
+    } while (op != 8);
 
     return 0;
 }

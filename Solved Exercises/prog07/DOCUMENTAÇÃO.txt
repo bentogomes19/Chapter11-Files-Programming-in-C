@@ -1,0 +1,77 @@
+SISTEMA DE GERENCIAMENTO DE VENDAS/PRODUTOS - LOJAS DE INFORMÁTICA
+------------------- PROJETO 01 - C --------------------------
+SOBRE A EMPRESA:
+A EMPRESA É UMA LOJA DO RAMO DE INFORMÁTICA, A COMPANHIA OFERECE VENDAS DE PRODUTOS DE HARDWARE
+SEGUE ABAIXO AS CATEGORIAS DA EMPRESA:
+	## MEMORIAS
+	## ARMAZENAMENTO
+	## PROCESSADORES (CPU)
+	## PLACA-MÃE
+	## PLACA DE VIDEO
+	## MONITOR
+	## PERIFÉRICOS
+	## FONTES DE ALIMENTAÇÃO
+
+DOCUMENTAÇÃO
+PROJETO CRIADO PARA GERENCIAR UMA EMPRESA DE INFORMÁTICA, NESTE SISTEMA O USUÁRIO PODERA:
+- CADASTRAR PRODUTOS
+- CADASTRAR CLIENTES
+- CADASTRAR VENDAS
+- MOSTRAR PRODUTOS CADASTRADOS
+- MOSTRAR CLIENTES CADASTRADOS
+- MOSTRAR TODAS AS VENDAS EFETUADAS
+- ALTERAR CADASTROS
+-------------------------------------------------------------
+ ** CADASTRAR PRODUTOS **
+- Para cadastrar um produto o usuário necessita inserir as seguintes informações
+	** CODIGO DO PRODUTO 	Ex: 2456
+	** NOME DO PRODUTO	Ex:  "RAM CRUCIAL 16 GB DDR4"  
+	** VALOR UNITÁRIO (R$)	Ex:  R$ 300,00
+	** QUANTIDADE DE ITENS PARA ADICIONAR AO ESTOQUE Ex: 40
+	** CATEGORIA 	Ex "MEMORIAS'
+
+- Ao cadastrar um produto, o sistema lista todos os produtos ja cadastrados...
+- O sistema não permite o cadastros com o mesmo CODIGO.
+- O sistema salva as informações em um registro com os produtos
+---------------------------------------------------------------
+** CADASTRAR CLIENTES **
+- Para cadastrar um cliente o usuário necessita inserir as seguintes informações
+	** CODIGO DO CLIENTE	Ex: 223
+	** NOME DO CLIENTE	Ex: "FABIO"
+	** TELEFONE 		Ex: "1234567891112"
+	** ENDEREÇO (CEP)	Ex: "13465520"
+
+- Ao cadastrar um cliente, o sistema gera uma lista com todos os clientes cadastrados.
+- O sistema não permite efetuar cadastros com o mesmo CÓDIGO
+- O sistema guarda as informações em um registro 
+- O sistema possui validações para endereço, logo se um usuário inserir um valor maior que o permitido não permitir o cadastro
+-----------------------------------------------------------------
+** CADASTRAR VENDAS **
+- Para cadastrar uma venda, é OBRIGATÓRIO o cadastro de um cliente, caso não haja clientes cadastrados, o sistema
+irá mostrar uma mensagem de alerta, caso contrário, permitir o cadastro. Para cadastrar uma venda o usuário deve inserir:
+	** CODIGO DO CLIENTE		Ex: 223
+	** CODIGO DA NOTA FISCAL	Ex: 1447
+	** CODIGO DO PRODUTO		Ex: 2456
+	** QUANTIDADE			Ex: 10
+
+
+- O sistema irá realizar alguns cálculos com imposto, descontos e quantidade
+- Os impostos serão fixos, ICMS: 17,00% + IOF: 3,50%
+- Descontos 
+	- Caso o produto tenha valor maior que R$ 250,00 -> 10%
+	- Caso o produto seja da categoria processador -> 5%
+- Um cliente poderá realizar compras ilimitadas
+-------------------------------------------------------------------
+** ALTERAR CADASTROS **
+- Caso haja erros de digitação por parte do usuário, o sistema permite alterações nos cadastros feitos
+- Para alterar dados do PRODUTO, o usuário devera irformar o código do produto
+- Para alterar dados do CLIENTE,  o usuario devera informar o codigo do cliente
+- O sistema não permite alterações de vendas
+- O sistema permite a exclusão de vendas para isso, o usuário deve informar o codigo da Nota Fiscal
+
+
+
+
+
+
+
