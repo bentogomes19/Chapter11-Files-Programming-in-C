@@ -78,7 +78,7 @@ void CadastroVendas()
                 }
 
             } while (achou == false);
-
+            // MOSTRANDO O PRODUTO PARA O USUÁRIO
             printf("----------------------------\n");
             printf("Produto encontrado...       \n");
             printf("COD_PRODUTO: # %d           \n", produto.cod_produto);
@@ -92,7 +92,7 @@ void CadastroVendas()
 
             printf("COD_PROD # %d --> Digite a quantidade: ", cod_produto);
             scanf("%d", &qtd_usr);
-            venda.cod_produto[count_produto] = cod_produto;
+            venda.cod_produto[count_produto] = cod_produto; // PARA MOSTRAR AO USUÁRIO NA NOTA FISCAL
             venda.imposto[count_produto] = produto.valor * 0.205;
             if (produto.valor > 250)
             {
@@ -108,6 +108,10 @@ void CadastroVendas()
             }
             qtd_soma_usr += qtd_usr;
             produto.qtd_estoque -= qtd_usr;
+
+            fseek(arq, -sizeof(produto), SEEK_CUR);
+            fwrite(&produto, sizeof(produto), 1, arq); // Escrevendo a struct no arquivo "produtos.dat"
+
             count_produto++;
             soma_valor += qtd_usr * produto.valor;
 
@@ -126,6 +130,7 @@ void CadastroVendas()
 
         } while (count_produto <= 8 && resp == 'S');
 
+        fclose(arq); // FECHANDO O ARQUIVO "Produtos.dat"
         arq3 = fopen("vendas.dat", "ab+");
         if (arq3 == NULL)
         {

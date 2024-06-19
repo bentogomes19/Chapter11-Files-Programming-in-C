@@ -5,6 +5,7 @@
 #include "CadastroProdutos.h"
 #include "CadastroClientes.h"
 #include "CadastroVendas.h"
+#include "Alteracoes.h"
 
 int main(void)
 {
@@ -36,10 +37,12 @@ int main(void)
             VendasCadastradas();
             break;
         case 7:
+            Alteracoes();
             break;
         case 8:
             break;
         default:
+            CodigoInvalido();
             break;
         }
 

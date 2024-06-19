@@ -61,13 +61,30 @@ irá mostrar uma mensagem de alerta, caso contrário, permitir o cadastro. Para 
 	- Caso o produto tenha valor maior que R$ 250,00 -> 10%
 	- Caso o produto seja da categoria processador -> 5%
 - Um cliente poderá realizar compras ilimitadas
+
+EXEMPLO DE NOTA FISCAL A SER EMITIDA PARA O USUARIO
+--------------------------------
+	NOTA FISCAL
+--------------------------------
+COD_NF: #4456
+COD_CLIENTE: #223
+COD_PRODUTO: #2456 #2234
+PREÇO UNITARIO (R$): R$ 300,00
+IMPOSTOS: R$ 61,50
+DESCONTOS: R$ 30,00
+QUANTIDADE: 1
+--------------------------------
+VALOR FINAL: R$ 331,50
+--------------------------------
+
+- caso o usuário deseja comprar mais de um produto, será adicionado ao valor final
 -------------------------------------------------------------------
 ** ALTERAR CADASTROS **
 - Caso haja erros de digitação por parte do usuário, o sistema permite alterações nos cadastros feitos
 - Para alterar dados do PRODUTO, o usuário devera irformar o código do produto
 - Para alterar dados do CLIENTE,  o usuario devera informar o codigo do cliente
 - O sistema não permite alterações de vendas
-- O sistema permite a exclusão de vendas para isso, o usuário deve informar o codigo da Nota Fiscal
+- O sistema permite a exclusão de vendas, para isso, o usuário deve informar o codigo da Nota Fiscal
 
 
 

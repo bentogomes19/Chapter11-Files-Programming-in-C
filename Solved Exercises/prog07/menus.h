@@ -47,6 +47,20 @@ void Menu_CadastrarVendas()
     printf("------------------------------------------------\n");
 }
 
+void Menu_Alteracoes()
+{
+    system("cls"); // LIMPAR A TELA
+    printf("------------------------------------------------\n");
+    printf("### LOJAS INFORMATICA - ALTERACOES           ###\n");
+    printf("------------------------------------------------\n");
+    printf("[01] - ALTERAR DADOS CLIENTES                   \n");
+    printf("[02] - ALTERAR DADOS PRODUTOS                   \n");
+    printf("[03] - EXCLUIR CLIENTES                         \n");
+    printf("[04] - EXCLUIR PRODUTOS                         \n");
+    printf("[05] - EXCLUIR NOTAS FISCAIS                    \n");
+    printf("[06] - VOLTAR AO MENU                           \n");
+}
+
 // MOSTRAR PRODUTOS CADASTRADOS
 void produtosCadastrados()
 {
@@ -123,9 +137,9 @@ void VendasCadastradas()
         printf("==========================================================================\n");
         printf("#  CODIGO_NF  ##        VALOR FINAL      ##        CODIGO_CLIENTE       ##\n");
         printf("==========================================================================\n");
-        while(fread(&venda, sizeof(venda), 1, arq3))
+        while (fread(&venda, sizeof(venda), 1, arq3))
         {
-            printf("#    %-7d  ##     %-8s %-9.2f  ##          %-17d  ##\n",venda.cod_NF, "R$", venda.preco_final, venda.cod_cli);
+            printf("#    %-7d  ##     %-8s %-9.2f  ##          %-17d  ##\n", venda.cod_NF, "R$", venda.preco_final, venda.cod_cli);
         }
     }
     fclose(arq3);
